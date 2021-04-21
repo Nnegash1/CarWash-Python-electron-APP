@@ -2,7 +2,7 @@ const {app, BrowserWindow} = require('electron')
 
 function createWindow () {
     window = new BrowserWindow({width: 800, height: 600})
-    window.loadFile('index.html')
+    window.loadFile('templates/index.html')
 
 
     	/*var python = require('child_process').spawn('python', ['./hello.py']);
@@ -21,6 +21,10 @@ pyshell.run('hello.py',  function  (err, results)  {
     
 }
 
+var pyshell =  require('python-shell');
+pyshell.run('engine.py',  function  (err, results)  {
+ if  (err)  console.log(err);
+}); 
 
 
 app.on('ready', createWindow)
