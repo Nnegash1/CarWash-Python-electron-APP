@@ -2,7 +2,7 @@ const {app, BrowserWindow} = require('electron')
 
 function createWindow () {
     window = new BrowserWindow({width: 800, height: 600})
-    window.loadFile('flaskwash/templates/index.html')
+    window.loadFile('flaskwash/templates/dashboard.html')
 
 
     	/*var python = require('child_process').spawn('python', ['./hello.py']);
