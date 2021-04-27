@@ -83,7 +83,17 @@
                     </div>
                 </div>
             </li>
-
+               <!-- Divider -->
+               <hr class="sidebar-divider">
+               <!-- Heading -->
+               <div class="sidebar-heading">
+                   Client
+               </div>
+               <li class="nav-item">
+                   <a class="nav-link" href="http://127.0.0.1:5000/clientform">
+                       <i class="fas fa-fw fa-chart-area"></i>
+                       <span>Make an Appointement</span></a>
+               </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
             <!--New Worker-->
@@ -137,7 +147,7 @@
             </li>
              <!-- Nav Item - Tables -->
              <li class="nav-item active">
-                <a class="nav-link" href="http://127.0.0.1:5000/">
+                <a class="nav-link" href="http://127.0.0.1:5000/stock">
                     <i class="fas fa-fw fa-table"></i>
                     <span >Stock</span></a>
             </li>
@@ -265,9 +275,6 @@
                                             <th>Item Name</th>
                                             <th>Item Price</th>
                                             <th>Quantity</th>
-                                            <th>Total</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -275,21 +282,18 @@
                                             <th>Item Name</th>
                                             <th>Item Price</th>
                                             <th>Quantity</th>
-                                            <th>Total</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         {% for items in item %}
+                                            
+                                            {%if items.item_name != ''%}
                                             <tr>
                                                 <td>{{items.item_name}}</td>
-                                                <td>{{items.item_qty}}</td>
-                                                <td>{{items.price}}</td>
-                                                <td>None</td>
-                                                <td>Start date</td>
-                                                <td>Salary</td>
+                                                <td>{{items.item_price}}</td>
+                                                <td>{{items.item_qty}}</td>    
                                             </tr>
+                                            {% endif %}
                                         {% endfor %}
                                     </tbody>
                                 </table>

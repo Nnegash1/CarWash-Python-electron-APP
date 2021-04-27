@@ -38,9 +38,9 @@ class Item(db.Model):
     item_price = db.Column(db.SmallInteger, nullable=False)
     total_inventory = db.Column(db.SmallInteger, nullable=False)
     
-
     def __init__(self, item_name, item_qty, item_price, total_inventory):
         self.item_name = item_name
         self.item_qty = item_qty
         self.item_price = item_price
         self.total_inventory = total_inventory
+

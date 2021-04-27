@@ -1,5 +1,6 @@
 from flask import redirect, url_for,render_template, request
-from flaskwash import app, db
+from flaskwash import app, db, admin
+from flask_admin.contrib.sqla import ModelView
 from flaskwash.create_db import Worker, Client, Item
 
 
@@ -10,7 +11,7 @@ def index():
 
 @app.route("/stock", methods=["GET", "POST"])
 def stock():
-    item = Item.query.all()    
+    item = Item.query.all()   
     return render_template("itemTable.html", item = item)
 
 
@@ -70,5 +71,6 @@ def dashbord():
     return render_template("dashboard.html")
 
 
-
+admin.add_view(ModelView(Item, db.session))
+admin.add_view(ModelView(Worker, db.session))
 
