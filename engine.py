@@ -1,4 +1,5 @@
-from flaskwash import app, db
+from flaskwash import app, db, admin
+
 
 if __name__ == "__main__":
     db.create_all()

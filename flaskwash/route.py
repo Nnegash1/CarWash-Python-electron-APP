@@ -70,6 +70,9 @@ def bar_chart():
 def dashbord():
     return render_template("dashboard.html")
 
+@app.route("/")
+def home():
+    return render_template("dashboard.html")
 
 admin.add_view(ModelView(Item, db.session))
 admin.add_view(ModelView(Worker, db.session))
