@@ -1,4 +1,6 @@
 from flaskwash import db
+from sqlalchemy import Column, ForeignKey
+from sqlalchemy.orm import relationship
 
 class Worker(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -37,10 +39,23 @@ class Item(db.Model):
     item_qty = db.Column(db.SmallInteger, nullable=False)
     item_price = db.Column(db.SmallInteger, nullable=False)
     total_inventory = db.Column(db.SmallInteger, nullable=False)
-    
+    #report_id = relationship('Report')
     def __init__(self, item_name, item_qty, item_price, total_inventory):
         self.item_name = item_name
         self.item_qty = item_qty
         self.item_price = item_price
         self.total_inventory = total_inventory
+
+# class Report(db.Model):
+#     #Sales = number items sold
+#     id = db.Column(db.Integer, primary_key=True)
+#     name = Column(db.Integer, ForeignKey('Item.item_name'))
+#     item_qty = Column(db.Integer, ForeignKey('Item.item_qty'))
+#     item_price = Column(db.Integer, ForeignKey('Item.item_price'))
+    
+#     def __init__(self, name, item_qty, item_price):
+#         self.name = name
+#         self.item_qty = item_qty
+#         self.item_price = item_price
+    
 

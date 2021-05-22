@@ -3,10 +3,11 @@ from flaskwash import app, db, admin
 from flask_admin.contrib.sqla import ModelView
 from flaskwash.create_db import Worker, Client, Item
 
-
 @app.route("/workertable", methods=["GET", "POST"])
 def index():
-    workers = Worker.query.all()    
+    workers = Worker.query.all()  
+    print("The type returned:", type(workers), file=sys.stderr)
+    app.logger.info("The type returned:", type(workers))
     return render_template("WorkersTable.html", workers = workers)
 
 @app.route("/stock", methods=["GET", "POST"])
@@ -64,6 +65,7 @@ def client_form_index():
 
 @app.route("/chart")
 def bar_chart():
+    incomings = [121212, 5312, 6251, 7841, 9821, 14984]
     return render_template("chart.html")
 
 @app.route("/dashboard")

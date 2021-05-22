@@ -1,0 +1,2 @@
+from flaskwash import db 
+
