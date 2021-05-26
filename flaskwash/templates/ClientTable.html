@@ -40,7 +40,6 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-
                <!-- Divider -->
                <hr class="sidebar-divider">
                <!-- Heading -->
@@ -52,11 +51,12 @@
                        <i class="fas fa-fw fa-chart-area"></i>
                        <span>Make an Appointement</span></a>
                </li>
-               <li class="nav-item">
-                <a class="nav-link" href="http://127.0.0.1:5000/clientTable">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Appointement List</span></a>
-            </li>
+                <li class="nav-item">
+                   <a class="nav-link" href="http://127.0.0.1:5000/clientform">
+                       <i class="fas fa-fw fa-chart-area"></i>
+                       <span>Appointement List</span></a>
+               </li>
+               
             <!-- Divider -->
             <hr class="sidebar-divider">
             <!--New Worker-->
@@ -71,13 +71,15 @@
             <li class="nav-item active">
                 <a class="nav-link" href="http://127.0.0.1:5000/workertable">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Workers Information</span></a>
+                    <span >Workers Information</span></a>
             </li>
-            
-            <div class="sidebar-heading">
-                Item 
-            </div>
+            <!-- Divider -->
             <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Addons
+            </div>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="http://127.0.0.1:5000/chart">
@@ -90,8 +92,11 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span >Stock</span></a>
             </li>
-
-            <hr class="sidebar-divider">
+            
+            <hr class="sidebar-divider d-none d-md-block">
+            <div class="sidebar-heading">
+                Addons
+            </div>
             <li class="nav-item">
                 <a class="nav-link" href="http://127.0.0.1:5000/item">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -196,35 +201,41 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Workers Information</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Item Name</th>
-                                            <th>Item Price</th>
-                                            <th>Quantity</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
+                                            <th>Phone Number</th>
+                                            <th>Plate Number</th>
+                                            <th>Vehicle Brand</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Item Name</th>
-                                            <th>Item Price</th>
-                                            <th>Quantity</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
+                                            <th>Phone Number</th>
+                                            <th>Plate Number</th>
+                                            <th>Vehicle Brand</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        {% for items in item %}
-                                            
-                                            {%if items.item_name != ''%}
+                                        {% for work in client %}
                                             <tr>
-                                                <td>{{items.item_name}}</td>
-                                                <td>{{items.item_price}}</td>
-                                                <td>{{items.item_qty}}</td>    
+                                                <td>{{work.first_name}}</td>
+                                                <td>{{work.last_name}}</td>
+                                                <td>{{work.email}}</td>
+                                                <td>{{work.phone_numer}}</td>
+                                                <td>{{work.plate_number}}</td>
+                                                <td>{{work.vehicle_brand}}</td>
                                             </tr>
-                                            {% endif %}
                                         {% endfor %}
                                     </tbody>
                                 </table>
