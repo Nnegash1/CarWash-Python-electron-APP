@@ -8,7 +8,10 @@ shop. It keeps track of the monthly income of the company and the stock of items
 
 The front end of the web app uses bootstrap and HTML. However, I have used javascript to utilize chart.js for analyzing the monthly data collected from the store. Furthermore, the back-end of the app used the Flask framework. Since the app is not ready for deployment yet, I have decided to use FLASK to test and run the app. I am currently using SQLAlquemy to store data, which will also change during deployment.
 
- 
+# Design
+
+![](Database.png)
+
 # Client Form
 
 Form to make an appointement and add the customer to the queue. 
@@ -25,3 +28,4 @@ Form to insert a new worker to the station.
 
 List of workers that are working that date.
 ![](Worker.png)
+
