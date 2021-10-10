@@ -11,4 +11,18 @@ The front end of the web app uses bootstrap and HTML. However, I have used javas
  
 # Client Form
 
+Form to make an appointement and add the customer to the queue. 
 
+![](Client.png)
+
+# Worker Form
+
+Form to insert a new worker to the station.
+
+![](WorkerInformation.png)
+
+# List of Worker
+
+List of workers that are working that date.
+
+![](Worker.png)
