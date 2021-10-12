@@ -1,11 +1,31 @@
-## Electron with Python
+## CAR WASH APP
 
-Very Simple Python App with Electron GUI which demonstrates Python/Node.js-Electron Communication.
+The purpose of the web app is to help carwash business owners. Furthermore, it helps the owners keep track of the employees and customers that have visited the 
+shop. It keeps track of the monthly income of the company and the stock of items in the shop. 
 
-You can read this [Electron/Python tutorial](https://www.techiediaries.com/python-electron-tutorial) for more information
 
-![Electron Python](https://i.imgur.com/bM6cJR3.png)
+# How the app is built:
 
-![Electron Python](https://i.imgur.com/ytib7jt.png)
+The front end of the web app uses bootstrap and HTML. However, I have used javascript to utilize chart.js for analyzing the monthly data collected from the store. Furthermore, the back-end of the app used the Flask framework. Since the app is not ready for deployment yet, I have decided to use FLASK to test and run the app. I am currently using SQLAlquemy to store data, which will also change during deployment.
 
- 
+# Design
+
+![](Database.png)
+
+# Client Form
+
+Form to make an appointement and add the customer to the queue. 
+
+![](Client.png)
+
+# Worker Form
+
+Form to insert a new worker to the station.
+
+![](WorkerInformation.png)
+
+# List of Worker
+
+List of workers that are working that date.
+![](Worker.png)
+
