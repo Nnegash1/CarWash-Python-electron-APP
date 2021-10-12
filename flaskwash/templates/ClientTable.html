@@ -37,7 +37,6 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="http://127.0.0.1:5000/dashboard">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
                <!-- Divider -->
@@ -48,12 +47,10 @@
                </div>
                <li class="nav-item">
                    <a class="nav-link" href="http://127.0.0.1:5000/clientform">
-                       <i class="fas fa-fw fa-chart-area"></i>
                        <span>Make an Appointement</span></a>
                </li>
                 <li class="nav-item">
-                   <a class="nav-link" href="http://127.0.0.1:5000/clientform">
-                       <i class="fas fa-fw fa-chart-area"></i>
+                   <a class="nav-link" href="http://127.0.0.1:5000/clientTable">
                        <span>Appointement List</span></a>
                </li>
                
@@ -65,12 +62,10 @@
             </div>
             <li class="nav-item">
                 <a class="nav-link" href="http://127.0.0.1:5000/workerform">
-                    <i class="fas fa-fw fa-chart-area"></i>
                     <span>Add New Worker</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="http://127.0.0.1:5000/workertable">
-                    <i class="fas fa-fw fa-table"></i>
                     <span >Workers Information</span></a>
             </li>
             <!-- Divider -->
@@ -83,13 +78,11 @@
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="http://127.0.0.1:5000/chart">
-                    <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li>
              <!-- Nav Item - Tables -->
              <li class="nav-item active">
                 <a class="nav-link" href="http://127.0.0.1:5000/stock">
-                    <i class="fas fa-fw fa-table"></i>
                     <span >Stock</span></a>
             </li>
             
@@ -99,7 +92,6 @@
             </div>
             <li class="nav-item">
                 <a class="nav-link" href="http://127.0.0.1:5000/item">
-                    <i class="fas fa-fw fa-chart-area"></i>
                     <span>Insert New Item</span></a>
             </li>
             <!-- Divider -->
@@ -195,13 +187,13 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Workers</h1>
-                    <p class="mb-4">List of Workers</p>
+                    <h1 class="h3 mb-2 text-gray-800">Appointement</h1>
+                    <p class="mb-4">List of Appointement</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Workers Information</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Client Information</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -229,12 +221,14 @@
                                     <tbody>
                                         {% for work in client %}
                                             <tr>
+                                                {%if work.first_name != '' %}
                                                 <td>{{work.first_name}}</td>
                                                 <td>{{work.last_name}}</td>
                                                 <td>{{work.email}}</td>
                                                 <td>{{work.phone_numer}}</td>
                                                 <td>{{work.plate_number}}</td>
                                                 <td>{{work.vehicle_brand}}</td>
+                                                {%endif%}
                                             </tr>
                                         {% endfor %}
                                     </tbody>

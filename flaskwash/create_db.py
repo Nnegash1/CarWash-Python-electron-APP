@@ -33,18 +33,18 @@ class Client(db.Model):
         self.vehicle_brand = vehicle_brand
 
 
-class Item(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    item_name = db.Column(db.String(80), nullable=False)
-    item_qty = db.Column(db.SmallInteger, nullable=False)
-    item_price = db.Column(db.SmallInteger, nullable=False)
-    total_inventory = db.Column(db.SmallInteger, nullable=False)
-    #report_id = relationship('Report')
-    def __init__(self, item_name, item_qty, item_price, total_inventory):
-        self.item_name = item_name
-        self.item_qty = item_qty
-        self.item_price = item_price
-        self.total_inventory = total_inventory
+# class Item(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     item_name = db.Column(db.String(80), nullable=False)
+#     item_qty = db.Column(db.SmallInteger, nullable=False)
+#     item_price = db.Column(db.SmallInteger, nullable=False)
+#     total_inventory = db.Column(db.SmallInteger, nullable=False)
+#     #report_id = relationship('Report')
+#     def __init__(self, item_name, item_qty, item_price, total_inventory):
+#         self.item_name = item_name
+#         self.item_qty = item_qty
+#         self.item_price = item_price
+#         self.total_inventory = total_inventory
 
 # class Report(db.Model):
 #     #Sales = number items sold
