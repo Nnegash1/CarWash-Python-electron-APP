@@ -219,15 +219,15 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        {% for work in client %}
+                                        {% for clients in client %}
                                             <tr>
-                                                {%if work.first_name != '' %}
-                                                <td>{{work.first_name}}</td>
-                                                <td>{{work.last_name}}</td>
-                                                <td>{{work.email}}</td>
-                                                <td>{{work.phone_numer}}</td>
-                                                <td>{{work.plate_number}}</td>
-                                                <td>{{work.vehicle_brand}}</td>
+                                                {%if clients.first_name != '' %}
+                                                <td>{{clients.first_name}}</td>
+                                                <td>{{clients.last_name}}</td>
+                                                <td>{{clients.email}}</td>
+                                                <td>{{clients.phone_numer}}</td>
+                                                <td>{{clients.plate_number}}</td>
+                                                <td>{{clients.vehicle_brand}}</td>
                                                 {%endif%}
                                             </tr>
                                         {% endfor %}

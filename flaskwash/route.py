@@ -1,7 +1,7 @@
 from flask import redirect, url_for,render_template, request
+from flask.helpers import flash
 from flask_sqlalchemy.model import Model
 from flaskwash import app, db, admin
-import matplotlib.pyplot as plt
 from flask_admin.contrib.sqla import ModelView
 from flaskwash.create_db import Worker, Client
 import sys
@@ -9,42 +9,17 @@ import sys
 #check workers name in the dataset
 @app.route("/workertable", methods=["GET", "POST"])
 def index():
-    search_name = request.form.get("search_id")
+    search_name = request.form.get("searchworker")
     if(search_name is not None):
-        workers = Worker.query.all()
-        for worker in workers:
-            if worker.first_name == workers:
-                return render_template("WorkersTable.html", workers = workers)           
-    workers = Worker.query.all()  
-    app.logger.info("The type returned:", type(workers))
-    return render_template("WorkersTable.html", workers = workers)
-
-'''
-#check items inside the stock database
-@app.route("/stock", methods=["GET", "POST"])
-def stock():
-    item = Item.query.all()   
-    return render_template("itemTable.html", item = item)
-'''
+        workers = Worker.query.filter_by(first_name=search_name)
+        return render_template("WorkersTable.html", workers = workers) 
+    else:          
+        workers = Worker.query.all()  
+        app.logger.info("The type returned:", type(workers))
+        return render_template("WorkersTable.html", workers = workers)
 
 
-#Add item to the data base; if it exists 
-#return without adding.
 
-'''
-@app.route("/item", methods=["GET","POST"])
-def new_item():
-    if request.method == "POST":
-        def_val = None
-        item_name = request.form.get("item_name", def_val)
-        item_price = request.form.get("price", def_val)
-        qty = request.form.get("qty", def_val)
-        total_cost = 10
-        item = Item(item_name, qty, item_price, total_cost)
-        db.session.add(item)
-        db.session.commit()
-    return render_template("itemForm.html")
-'''
 
 '''
 Add workers to the data base
@@ -63,6 +38,7 @@ def worker_form_index():
         db.session.commit()
     return render_template("Workersform.html")
 
+
 @app.route("/clientform", methods=["GET","POST"])
 def client_form_index():
     if request.method == "POST":
@@ -72,7 +48,8 @@ def client_form_index():
         phone_number = request.form.get("phone")
         plate_number = request.form.get("plate")
         vehicle_brand = request.form.get("brand")
-        #if first_name == None or last_name == None
+        if first_name == None or last_name == None:
+            return render_template("Clientform.html") 
         client = Client(first_name, last_name, email, phone_number, plate_number, vehicle_brand)
         db.session.add(client)
         db.session.commit()
