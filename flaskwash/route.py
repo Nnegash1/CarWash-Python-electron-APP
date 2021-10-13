@@ -1,12 +1,20 @@
 from flask import redirect, url_for,render_template, request
+from flask_sqlalchemy.model import Model
 from flaskwash import app, db, admin
 import matplotlib.pyplot as plt
 from flask_admin.contrib.sqla import ModelView
 from flaskwash.create_db import Worker, Client
+import sys
   
 #check workers name in the dataset
 @app.route("/workertable", methods=["GET", "POST"])
 def index():
+    search_name = request.form.get("search_id")
+    if(search_name is not None):
+        workers = Worker.query.all()
+        for worker in workers:
+            if worker.first_name == workers:
+                return render_template("WorkersTable.html", workers = workers)           
     workers = Worker.query.all()  
     app.logger.info("The type returned:", type(workers))
     return render_template("WorkersTable.html", workers = workers)
@@ -53,7 +61,6 @@ def worker_form_index():
         worker = Worker(first_name, last_name, email, phone_number)
         db.session.add(worker)
         db.session.commit()
-
     return render_template("Workersform.html")
 
 @app.route("/clientform", methods=["GET","POST"])
@@ -73,6 +80,10 @@ def client_form_index():
 
 @app.route("/clientTable", methods=["GET", "POST"])
 def client_table():
+    search_name = request.form.get('search_id')
+    if(search_name != None):
+        client = Client.query.filter_by(first_name=search_name).all()
+        return render_template("ClientTable.html", client = client)         
     client = Client.query.all() 
     if client == None:
         return
